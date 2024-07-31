@@ -54,13 +54,11 @@
 
 .rankCurrency {
   position: absolute;
-  bottom: -10px;
-  width: 60px;
-  left: 33px;
+  bottom: -5px;
+  width: 100%;
+  left: 0;
   text-align: center;
-  border-radius: 7px;
   background-color: rgba(var(--background), 0.5);
-  border: 1px solid rgb(var(--accentColor), 0.3);
   color: rgb(var(--darkSecondColor));
   font-size: clamp(
     var(--min-header-size),

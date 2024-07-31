@@ -126,10 +126,46 @@ const Header = () => {
             transition={{ duration: 1.5 }}
             className={`${classes.sideMenu} ${isMenuOpen ? classes.open : ""}`}
           >
-            <Link to="/prices">Prices</Link>
-            <Link to="">Wallet</Link>
-            <Link to="">About</Link>
-            <Link to="">FAQ</Link>
+            <Link
+              className={
+                location.pathname === "/prices"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to="/prices"
+            >
+              Prices
+            </Link>
+            <Link
+              className={
+                location.pathname === "/wallet"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to=""
+            >
+              Wallet
+            </Link>
+            <Link
+              className={
+                location.pathname === "/about"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to=""
+            >
+              About
+            </Link>
+            <Link
+              className={
+                location.pathname === "/faq"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to=""
+            >
+              FAQ
+            </Link>
             <Link to="" className={classes.logInButton}>
               Log In
             </Link>

@@ -170,7 +170,6 @@
 .sideMenu,
 .sideDownMenu {
   background: rgba(var(--background), 1);
-  color: rgb(var(--darkSecondColor));
   padding: 3vh 0;
   z-index: 998;
   display: none;
@@ -206,7 +205,6 @@
 .sideMenu a {
   display: block;
   text-decoration: none;
-  color: rgb(var(--textColor));
   font-size: calc(
     clamp(
         var(--min-header-size),

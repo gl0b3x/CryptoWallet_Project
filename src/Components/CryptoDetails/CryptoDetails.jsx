@@ -152,7 +152,6 @@ const CryptoDetails = () => {
         ]);
         setCurrencyCharts(chartResponse.data);
         setCurrency(dataResponse.data);
-        console.log(dataResponse.data);
       } catch (err) {
         console.error(err);
       } finally {
