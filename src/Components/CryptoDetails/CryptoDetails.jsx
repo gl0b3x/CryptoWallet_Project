@@ -18,6 +18,7 @@ import Api from "../Api/Api.js";
 import SkeletonLoading from "../Tools/SkeletonLoading.jsx";
 import LoadingAnimation from "../Tools/LoadingAnimation.jsx";
 import { CryptoContext } from "../../Context/ConfigProvider.jsx";
+import NumberFormatter from "../Tools/NumberFormatter.jsx";
 
 const highlightLinePlugin = {
   id: "highlightLinePlugin",
@@ -151,6 +152,7 @@ const CryptoDetails = () => {
         ]);
         setCurrencyCharts(chartResponse.data);
         setCurrency(dataResponse.data);
+        console.log(dataResponse.data);
       } catch (err) {
         console.error(err);
       } finally {
@@ -214,12 +216,14 @@ const CryptoDetails = () => {
             return date.toLocaleString();
           },
           label: function (tooltipItem) {
-            const price = tooltipItem.raw;
-            const formattedPrice = new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-            }).format(price);
-            return `USD price: ${formattedPrice}`;
+            if (tooltipItem.raw < 0.001) {
+              return `USD price: $ ${tooltipItem.raw.toFixed(8)}`;
+            } else {
+              return `USD price: ${new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(tooltipItem.raw)}`;
+            }
           },
         },
       },
@@ -246,10 +250,13 @@ const CryptoDetails = () => {
             size: 16,
           },
           callback: function (value, index, ticks) {
-            const date = new Date(chartData.labels[value]);
-            return period === "24h" && ticks.length > 10
-              ? date.toLocaleTimeString().slice(0, 5)
-              : date.toLocaleDateString();
+            if (chartData && chartData.labels) {
+              const date = new Date(chartData.labels[value]);
+              return period === "24h" && ticks.length > 10
+                ? date.toLocaleTimeString().slice(0, 5)
+                : date.toLocaleDateString();
+            }
+            return "";
           },
           maxTicksLimit: 10,
           autoSkip: true,
@@ -268,6 +275,16 @@ const CryptoDetails = () => {
           font: {
             size: 16,
           },
+          callback: function (value) {
+            if (value < 0.001) {
+              return value.toFixed(8);
+            } else {
+              return new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(value);
+            }
+          },
         },
         grid: {
           display: false,
@@ -282,88 +299,91 @@ const CryptoDetails = () => {
   return (
     <main className={classes.detailsWrapper}>
       {loading ? (
-        <>
-          <div className={classes.flexDisplay}>
-            <SkeletonLoading style={{ width: "5%", height: "100%" }} />
-          </div>
-          <div className={classes.flexDisplay}>
-            <SkeletonLoading style={{ width: "15%", height: "100%" }} />
-          </div>
-          <div className={classes.flexDisplay}>
-            <SkeletonLoading style={{ width: "15%", height: "100%" }} />
-          </div>
-        </>
+        <div className={classes.generalInfo}>
+          <SkeletonLoading style={{ width: "30%", height: "125px" }} />
+        </div>
       ) : (
-        <div className={classes.smallDescribe}>
-          <div className={classes.flexDisplay}>
-            <span className={classes.rankCurrency}> Rank #{currency.rank}</span>
+        <div className={classes.generalInfo}>
+          <div className={classes.leftBlock}>
+            <div className={classes.imageWrapper}>
+              <img
+                className={classes.iconCurrency}
+                src={currency.icon}
+                alt={"Icon"}
+              />
+              <span className={classes.rankCurrency}># {currency.rank}</span>
+            </div>
           </div>
-          <div className={classes.flexDisplay}>
-            <img
-              className={classes.iconCurrency}
-              src={currency.icon}
-              alt={"Icon"}
-            />
-            <span className={classes.nameCurrency}> {currency.name}</span>
-            <span className={classes.symbolCurrency}> {currency.symbol}</span>
-          </div>
-          <div className={classes.flexDisplay}>
-            <span className={classes.priceCurrency}>
-              $ <FormatPrice price={currency.price} />
-            </span>
-            <span
-              className={`${classes.coinChange} ${
-                currency.priceChange1d > 0 ? classes.up : classes.down
-              }`}
-            >
-              {currency.priceChange1d > 0
-                ? "+" + currency.priceChange1d
-                : currency.priceChange1d}
-              %
-            </span>
+          <div className={classes.rightBlock}>
+            <div className={classes.flexBox}>
+              <span className={classes.nameCurrency}> {currency.name}</span>
+              <span className={classes.symbolCurrency}> {currency.symbol}</span>
+            </div>
+            <div className={classes.flexBox}>
+              <span className={classes.priceCurrency}>
+                $ <FormatPrice price={currency.price} />
+              </span>
+              <span
+                className={`${classes.coinChange} ${
+                  currency.priceChange1d > 0 ? classes.up : classes.down
+                }`}
+              >
+                {currency.priceChange1d > 0
+                  ? "+" + currency.priceChange1d
+                  : currency.priceChange1d}
+                %
+              </span>
+            </div>
           </div>
         </div>
+      )}
+      {loading ? (
+        <span className={classes.Article}>Price Charts</span>
+      ) : (
+        <span className={classes.Article}>
+          {currency.name} Price Charts ({currency.symbol})
+        </span>
       )}
       <div className={classes.chartInfo}>
         <div className={classes.groupTime}>
           <span
-            className={period === "24h" ? classes.active : ""}
+            className={period === "24h" ? classes.active : classes.notActive}
             onClick={() => setPeriod("24h")}
           >
             24H
           </span>
           <span
-            className={period === "1w" ? classes.active : ""}
+            className={period === "1w" ? classes.active : classes.notActive}
             onClick={() => setPeriod("1w")}
           >
             1W
           </span>
           <span
-            className={period === "1m" ? classes.active : ""}
+            className={period === "1m" ? classes.active : classes.notActive}
             onClick={() => setPeriod("1m")}
           >
             1M
           </span>
           <span
-            className={period === "3m" ? classes.active : ""}
+            className={period === "3m" ? classes.active : classes.notActive}
             onClick={() => setPeriod("3m")}
           >
             3M
           </span>
           <span
-            className={period === "6m" ? classes.active : ""}
+            className={period === "6m" ? classes.active : classes.notActive}
             onClick={() => setPeriod("6m")}
           >
             6M
           </span>
           <span
-            className={period === "1y" ? classes.active : ""}
+            className={period === "1y" ? classes.active : classes.notActive}
             onClick={() => setPeriod("1y")}
           >
             1Y
           </span>
           <span
-            className={period === "all" ? classes.active : ""}
+            className={period === "all" ? classes.active : classes.notActive}
             onClick={() => setPeriod("all")}
           >
             ALL
@@ -384,6 +404,111 @@ const CryptoDetails = () => {
         ) : (
           chartData && <Line data={chartData} options={chartOptions} />
         )}
+      </div>
+
+      <span className={classes.Article}>Market Stats</span>
+      <div className={classes.marketStats}>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Market Cap</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span className={classes.textStats}>
+              $<NumberFormatter number={currency.marketCap} />
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Fully Diluted Valuation</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span className={classes.textStats}>
+              $<NumberFormatter number={currency.fullyDilutedValuation} />
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Circulating Supply</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span className={classes.textStats}>
+              <NumberFormatter number={currency.availableSupply} />
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Total Supply</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span className={classes.textStats}>
+              <NumberFormatter number={currency.totalSupply} />
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Volume 24h</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span className={classes.textStats}>
+              $<NumberFormatter number={currency.volume} />
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Price Change (1h)</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span
+              className={`${classes.textStats} ${
+                currency.priceChange1h > 0 ? classes.up : classes.down
+              }`}
+            >
+              {currency.priceChange1h > 0
+                ? "+" + currency.priceChange1h
+                : currency.priceChange1h}
+              %
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Price Change (24h)</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span
+              className={`${classes.textStats} ${
+                currency.priceChange1d > 0 ? classes.up : classes.down
+              }`}
+            >
+              {currency.priceChange1d > 0
+                ? "+" + currency.priceChange1d
+                : currency.priceChange1d}
+              %
+            </span>
+          )}
+        </div>
+        <div className={classes.blockStats}>
+          <span className={classes.articleStats}>Price Change (7d)</span>
+          {loading ? (
+            <SkeletonLoading style={{ width: "50%", height: "30px " }} />
+          ) : (
+            <span
+              className={`${classes.textStats} ${
+                currency.priceChange1w > 0 ? classes.up : classes.down
+              }`}
+            >
+              {currency.priceChange1w > 0
+                ? "+" + currency.priceChange1w
+                : currency.priceChange1w}
+              %
+            </span>
+          )}
+        </div>
       </div>
     </main>
   );

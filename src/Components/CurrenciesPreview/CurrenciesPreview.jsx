@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const CurrenciesPreviw = () => {
   const [popularCoins, setPopularCoins] = useState([]);
-  const [loadingPopular, setLoadingPopular] = useState(false);
+  const [loadingPopular, setLoadingPopular] = useState(true);
 
   const array = [1, 2, 3, 4, 5, 6, 8, 9, 10];
 

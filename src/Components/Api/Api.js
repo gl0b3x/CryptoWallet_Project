@@ -6,6 +6,7 @@ export default class Api {
       headers: {
         "X-API-KEY": "wUWjMtPlR5zoFTC+Woyt2la2mJsKYKxbGGVwElYpLIQ=",
         accept: "application/json",
+        // "Cache-Control": "no-cache",
       },
       params: params,
     });
@@ -19,6 +20,7 @@ export default class Api {
         headers: {
           "X-API-KEY": "wUWjMtPlR5zoFTC+Woyt2la2mJsKYKxbGGVwElYpLIQ=",
           accept: "application/json",
+          // "Cache-Control": "no-cache",
         },
       },
     );
@@ -32,6 +34,7 @@ export default class Api {
         headers: {
           "X-API-KEY": "wUWjMtPlR5zoFTC+Woyt2la2mJsKYKxbGGVwElYpLIQ=",
           accept: "application/json",
+          // "Cache-Control": "no-cache",
         },
       },
     );

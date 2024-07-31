@@ -88,12 +88,12 @@
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .footerNavigation {
-    padding: 10vh 15vw;
+    padding: 5vh 15vw;
   }
 }
 
 @media (min-width: 1400px) {
   .footerNavigation {
-    padding: 10vh 15vw;
+    padding: 5vh 15vw;
   }
 }

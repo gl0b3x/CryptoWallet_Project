@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext, useRef } from "react";
 import classes from "./Header.module.css";
 import {
   FaDiscord,
@@ -9,13 +9,14 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { CryptoContext } from "../../Context/ConfigProvider.jsx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const { currentTheme, setCurrentTheme } = useContext(CryptoContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const buttonRef = useRef(null);
+  const location = useLocation();
 
   const clickOnMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -32,10 +33,46 @@ const Header = () => {
             Wallet
           </Link>
           <div className={classes.navBar}>
-            <Link to="/prices">Prices</Link>
-            <Link to="">Wallet</Link>
-            <Link to="">About</Link>
-            <Link to="">FAQ</Link>
+            <Link
+              className={
+                location.pathname === "/prices"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to="/prices"
+            >
+              Prices
+            </Link>
+            <Link
+              className={
+                location.pathname === "/wallet"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to=""
+            >
+              Wallet
+            </Link>
+            <Link
+              className={
+                location.pathname === "/about"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to=""
+            >
+              About
+            </Link>
+            <Link
+              className={
+                location.pathname === "/faq"
+                  ? classes.active
+                  : classes.notActive
+              }
+              to=""
+            >
+              FAQ
+            </Link>
           </div>
         </nav>
         <div className={classes.tools}>

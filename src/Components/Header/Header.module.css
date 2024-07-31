@@ -63,11 +63,18 @@
 
 .navBar a {
   text-decoration: none;
-  color: rgb(var(--textColor));
 }
 
 .navBar a:hover {
   color: rgb(var(--accentColor));
+}
+
+.active {
+  color: rgb(var(--accentColor));
+}
+
+.notActive {
+  color: rgb(var(--textColor));
 }
 
 .logInButton,
