@@ -1,0 +1,133 @@
+.PreviewWrapper {
+  background-color: rgb(var(--background));
+  color: rgb(var(--textColor));
+}
+
+.article {
+  font-size: calc(
+    clamp(
+        var(--min-text-size),
+        var(--preferred-text-size),
+        var(--max-text-size)
+      ) + 10px
+  );
+  margin: 2vh 0;
+  padding: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.swiperWrapper {
+  width: 100%;
+  height: 8vh;
+  padding: 2vh 0;
+}
+
+.slidePopularContent {
+  height: 100%;
+  width: calc(100% - 20px);
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(var(--accentColor), 0.05);
+  border-radius: 14px;
+  font-size: clamp(
+    var(--min-header-size),
+    var(--preferred-header-size),
+    var(--max-header-size)
+  );
+  color: rgb(var(--textColor));
+  text-decoration: none;
+}
+
+.slideLoader {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--accentColor), 0.05);
+  border-radius: 14px;
+}
+
+.slidePopularContent:hover {
+  background-color: rgba(var(--accentColor), 0.1);
+}
+
+.leftSidePopularContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  height: 100%;
+}
+
+.popularTokenImage {
+  background-color: rgb(var(--background));
+  height: 40%;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+.popularTokenName {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.popularTokenPrice,
+.popularTokenChange {
+  font-weight: 700;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+@media (max-width: 479px) {
+  .PreviewWrapper {
+    padding: 2vh 5vw;
+  }
+  .slidePopularContent {
+    padding: 5px 10px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .PreviewWrapper {
+    padding: 2vh 5vw;
+  }
+  .slidePopularContent {
+    padding: 5px 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .PreviewWrapper {
+    padding: 2vh 10vw;
+  }
+  .slidePopularContent {
+    padding: 5px 10px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .PreviewWrapper {
+    padding: 0 10vw;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .PreviewWrapper {
+    padding: 0 10vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .PreviewWrapper {
+    padding: 0 15vw;
+  }
+}

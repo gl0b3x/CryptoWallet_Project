@@ -1,0 +1,359 @@
+.listWrapper {
+  background-color: rgb(var(--background));
+  color: rgb(var(--textColor));
+}
+
+.article {
+  font-size: calc(
+    clamp(
+        var(--min-text-size),
+        var(--preferred-text-size),
+        var(--max-text-size)
+      ) + 10px
+  );
+  margin: 2vh 0 0;
+  padding: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.listTokens {
+  padding: 4vh 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.coinDescribe {
+  width: calc(100% - 40px);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.coinBlock {
+  width: calc(100% - 40px);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(var(--accentColor), 0.05);
+  border-radius: 14px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: rgb(var(--textColor));
+}
+
+.coinBlock:hover {
+  background-color: rgba(var(--accentColor), 0.1);
+}
+
+.generalInfo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 100%;
+  width: 30%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nameWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.rankCoin,
+.coinSymbol,
+.coinPrice,
+.coinChange,
+.coinChange span,
+.coinVolume,
+.coinMarketCap {
+  font-size: clamp(
+    var(--min-header-size),
+    var(--preferred-header-size),
+    var(--max-header-size)
+  );
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coinSymbol {
+  font-weight: 700;
+}
+
+.volCapMobile,
+.priceChangeMobile {
+  width: calc(60% / 2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.priceChangeMobile span,
+.volCapMobile span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rankCoin {
+  width: fit-content;
+  min-width: 10%;
+}
+
+.coinPrice,
+.coinChange,
+.coinVolume,
+.coinMarketCap {
+  width: calc(70% / 4);
+}
+
+.coinImage {
+  height: 50%;
+  background-color: rgb(var(--background));
+  padding: 10px;
+  border-radius: 14px;
+}
+
+.coinName {
+  font-size: calc(
+    clamp(
+        var(--min-header-size),
+        var(--preferred-header-size),
+        var(--max-header-size)
+      ) - 3px
+  );
+  opacity: 0.7;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+@media (max-width: 479px) {
+  .listWrapper {
+    padding: 0 5vw 5vh;
+  }
+  .coinBlock {
+    padding: 10px 5px;
+    width: calc(100% - 10px);
+  }
+  .coinDescribe {
+    padding: 0 5px;
+    width: calc(100% - 10px);
+  }
+  .volCapMobile {
+    width: 30.5%;
+  }
+  .priceChangeMobile {
+    width: 29.5%;
+  }
+  .coinPrice,
+  .coinChange,
+  .coinVolume,
+  .coinMarketCap {
+    display: none;
+  }
+  .generalInfo {
+    width: 50%;
+    margin-right: 3px;
+  }
+  .nameWrapper {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 0;
+    width: 60%;
+    height: 100%;
+  }
+  .priceMobile,
+  .volumeMobile,
+  .coinSymbol,
+  .rankCoin {
+    font-size: clamp(
+      var(--min-text-size),
+      var(--preferred-text-size),
+      var(--max-text-size)
+    );
+    font-weight: 500;
+    text-align: center;
+  }
+  .coinSymbol {
+    text-align: left;
+  }
+  .changeMobile,
+  .marketCapMobile,
+  .coinName {
+    font-size: calc(
+      clamp(
+          var(--min-text-size),
+          var(--preferred-text-size),
+          var(--max-text-size)
+        ) - 3px
+    );
+    font-weight: 500;
+  }
+  .rankCoin {
+    min-width: 25%;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .listWrapper {
+    padding: 0 5vw 5vh;
+  }
+  .coinBlock {
+    padding: 10px 10px;
+    width: calc(100% - 20px);
+  }
+  .coinDescribe {
+    padding: 0 10px;
+    width: calc(100% - 20px);
+  }
+  .coinPrice,
+  .coinChange,
+  .coinVolume,
+  .coinMarketCap {
+    display: none;
+  }
+  .generalInfo {
+    width: 40%;
+  }
+  .nameWrapper {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 0;
+    width: 60%;
+    height: 100%;
+  }
+  .priceMobile,
+  .volumeMobile,
+  .coinSymbol,
+  .rankCoin {
+    font-size: clamp(
+      var(--min-text-size),
+      var(--preferred-text-size),
+      var(--max-text-size)
+    );
+    font-weight: 500;
+    text-align: center;
+  }
+  .coinSymbol {
+    text-align: left;
+  }
+  .changeMobile,
+  .marketCapMobile,
+  .coinName {
+    font-size: calc(
+      clamp(
+          var(--min-text-size),
+          var(--preferred-text-size),
+          var(--max-text-size)
+        ) - 3px
+    );
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .listWrapper {
+    padding: 0 10vw 5vh;
+  }
+  .coinBlock {
+    padding: 10px 10px;
+    width: calc(100% - 20px);
+  }
+  .coinDescribe {
+    padding: 0 10px;
+    width: calc(100% - 20px);
+  }
+  .coinPrice,
+  .coinChange,
+  .coinVolume,
+  .coinMarketCap {
+    display: none;
+  }
+  .generalInfo {
+    width: 40%;
+  }
+  .nameWrapper {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 0;
+    width: 60%;
+    height: 100%;
+  }
+  .priceMobile,
+  .volumeMobile,
+  .coinSymbol,
+  .rankCoin {
+    font-size: clamp(
+      var(--min-text-size),
+      var(--preferred-text-size),
+      var(--max-text-size)
+    );
+    font-weight: 500;
+    text-align: center;
+  }
+  .coinSymbol {
+    text-align: left;
+  }
+  .changeMobile,
+  .marketCapMobile,
+  .coinName {
+    font-size: calc(
+      clamp(
+          var(--min-text-size),
+          var(--preferred-text-size),
+          var(--max-text-size)
+        ) - 3px
+    );
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .listWrapper {
+    padding: 0 10vw 5vh;
+  }
+  .volCapMobile,
+  .priceChangeMobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .listWrapper {
+    padding: 0 10vw 5vh;
+  }
+  .volCapMobile,
+  .priceChangeMobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .listWrapper {
+    padding: 0 15vw 5vh;
+  }
+  .volCapMobile,
+  .priceChangeMobile {
+    display: none;
+  }
+}

@@ -1,0 +1,288 @@
+.getStartedStepsWrapper {
+  height: 70vh;
+  background-color: rgb(var(--accentColor), 0.1);
+}
+
+.article {
+  margin: 0 0 5vh;
+  padding: 0;
+  text-align: center;
+  color: rgb(var(--textColor));
+  font-size: clamp(
+    var(--min-article-size),
+    var(--preferred-article-size),
+    var(--max-article-size)
+  );
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.article span {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accentColor), 1) 0%,
+    rgba(var(--purpleColor), 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.swiperWrapper {
+  background-color: rgba(var(--background), 1);
+  border-radius: 24px;
+  height: 80%;
+}
+
+.slideWrapper {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.slideContent {
+  color: rgb(var(--textColor));
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.leftBlock {
+  width: 40%;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoContent {
+  transform: translateY(90px);
+  width: 100%;
+}
+
+.rightBlock {
+  width: 40%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.numberStep {
+  font-size: calc(
+    clamp(
+        var(--min-article-size),
+        var(--preferred-article-size),
+        var(--max-article-size)
+      ) + 32px
+  );
+  font-weight: 800;
+  margin-top: 5%;
+}
+
+.nameStep {
+  font-size: calc(
+    clamp(
+        var(--min-article-size),
+        var(--preferred-article-size),
+        var(--max-article-size)
+      ) - 15px
+  );
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accentColor), 1) 0%,
+    rgba(var(--purpleColor), 1) 100%
+  );
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 5%;
+}
+
+.describeStep {
+  font-size: clamp(
+    var(--min-text-size),
+    var(--preferred-text-size),
+    var(--max-text-size)
+  );
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: center;
+  padding: 0 25px;
+}
+
+.describeStep span {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accentColor), 1) 0%,
+    rgba(var(--purpleColor), 1) 100%
+  );
+  font-weight: 700;
+  letter-spacing: 1px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 479px) {
+  .getStartedStepsWrapper {
+    padding: 5vh 5vw;
+  }
+  .photoContent {
+    width: 60%;
+    transform: translateY(100%);
+  }
+  .slideContent {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .rightBlock {
+    margin-top: 5vh;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .leftBlock {
+    width: 100%;
+    position: absolute;
+  }
+  .numberStep,
+  .nameStep,
+  .describeStep {
+    margin: 0;
+  }
+  .nameStep {
+    font-size: calc(
+      clamp(
+          var(--min-article-size),
+          var(--preferred-article-size),
+          var(--max-article-size)
+        ) - 5px
+    );
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .getStartedStepsWrapper {
+    padding: 5vh 5vw;
+  }
+  .photoContent {
+    width: 60%;
+    transform: translateY(100%);
+  }
+  .slideContent {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .rightBlock {
+    margin-top: 5vh;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .leftBlock {
+    width: 100%;
+    position: absolute;
+  }
+  .numberStep,
+  .nameStep,
+  .describeStep {
+    margin: 0;
+  }
+  .nameStep {
+    font-size: calc(
+      clamp(
+          var(--min-article-size),
+          var(--preferred-article-size),
+          var(--max-article-size)
+        ) - 5px
+    );
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .getStartedStepsWrapper {
+    padding: 5vh 10vw;
+  }
+  .photoContent {
+    width: 70%;
+    transform: translateY(70%);
+  }
+  .slideContent {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .rightBlock {
+    margin-top: 5vh;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .leftBlock {
+    width: 100%;
+    position: absolute;
+  }
+  .numberStep,
+  .nameStep,
+  .describeStep {
+    margin: 0;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .getStartedStepsWrapper {
+    padding: 10vh 10vw;
+  }
+  .photoContent {
+    width: 70%;
+    transform: translateY(70%);
+  }
+  .slideContent {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .rightBlock {
+    margin-top: 5vh;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .leftBlock {
+    width: 100%;
+    position: absolute;
+  }
+  .numberStep,
+  .nameStep,
+  .describeStep {
+    margin: 0;
+  }
+  .describeStep {
+    font-size: calc(
+      clamp(
+          var(--min-text-size),
+          var(--preferred-text-size),
+          var(--max-text-size)
+        ) + 10px
+    );
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .getStartedStepsWrapper {
+    padding: 10vh 10vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .getStartedStepsWrapper {
+    padding: 10vh 20vw;
+  }
+}

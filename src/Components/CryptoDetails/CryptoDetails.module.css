@@ -1,0 +1,166 @@
+.detailsWrapper {
+  background-color: rgb(var(--background));
+  color: rgb(var(--textColor));
+  font-size: clamp(
+    var(--min-text-size),
+    var(--preferred-text-size),
+    var(--max-text-size)
+  );
+}
+
+.rankCurrency {
+  border-radius: 14px;
+  background-color: rgb(var(--accentColor), 0.2);
+  font-size: calc(
+    clamp(
+        var(--min-header-size),
+        var(--preferred-header-size),
+        var(--max-header-size)
+      ) - 2px
+  );
+  padding: 7px 14px;
+}
+
+.flexDisplay {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  height: 50px;
+}
+
+.iconCurrency {
+  height: 50px;
+}
+
+.nameCurrency {
+  font-weight: 700;
+  font-size: calc(
+    clamp(
+        var(--min-text-size),
+        var(--preferred-text-size),
+        var(--max-text-size)
+      ) + 4px
+  );
+}
+
+.symbolCurrency {
+  font-weight: 700;
+  opacity: 0.7;
+  font-size: calc(
+    clamp(
+        var(--min-text-size),
+        var(--preferred-text-size),
+        var(--max-text-size)
+      ) - 4px
+  );
+}
+
+.priceCurrency {
+  font-weight: 700;
+  font-size: calc(
+    clamp(
+        var(--min-text-size),
+        var(--preferred-text-size),
+        var(--max-text-size)
+      ) + 8px
+  );
+}
+
+.coinChange {
+  font-size: clamp(
+    var(--min-header-size),
+    var(--preferred-header-size),
+    var(--max-header-size)
+  );
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 7px 10px;
+}
+
+.up {
+  color: rgb(0, 128, 0);
+  border: 1px solid rgba(0, 128, 0, 0.5);
+}
+
+.down {
+  color: rgba(225, 0, 0, 1);
+  border: 1px solid rgba(225, 0, 0, 0.5);
+}
+
+.chartInfo {
+  background-color: rgb(var(--accentColor), 0.04);
+  border-radius: 28px;
+  padding: 3% 2%;
+}
+
+.groupTime {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+  font-size: calc(
+    clamp(
+        var(--min-header-size),
+        var(--preferred-header-size),
+        var(--max-header-size)
+      ) - 2px
+  );
+  margin-bottom: 2%;
+}
+
+.groupTime span {
+  cursor: pointer;
+  transition: 0.3s color;
+  background-color: rgb(var(--background));
+  width: 30px;
+  text-align: center;
+  padding: 7px 10px;
+  border-radius: 14px;
+}
+
+.groupTime span:hover {
+  color: rgb(var(--purpleColor));
+}
+
+.active {
+  color: rgb(var(--purpleColor));
+}
+
+@media (max-width: 479px) {
+  .detailsWrapper {
+    padding: 0 5vw 5vh;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .detailsWrapper {
+    padding: 0 5vw 5vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .detailsWrapper {
+    padding: 0 10vw 5vh;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .detailsWrapper {
+    padding: 0 10vw 5vh;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .detailsWrapper {
+    padding: 0 10vw 5vh;
+  }
+}
+
+@media (min-width: 1400px) {
+  .detailsWrapper {
+    padding: 0 15vw 5vh;
+  }
+}

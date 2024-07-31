@@ -1,0 +1,46 @@
+.createAccount {
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 24px;
+  color: rgb(var(--textColor));
+  letter-spacing: 5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0.8;
+  background-color: transparent;
+  border: 1px solid rgb(var(--accentColor));
+  cursor: pointer;
+  font-size: clamp(
+    var(--min-text-size),
+    var(--preferred-text-size),
+    var(--max-text-size)
+  );
+  min-height: 60px;
+}
+
+.createAccount:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--accentColor)) 0%,
+    rgb(var(--purpleColor)) 100%
+  );
+  opacity: 0.6;
+  transition: all 0.8s;
+  z-index: -1;
+}
+
+.createAccount:hover {
+  opacity: 1;
+}
+
+.createAccount:hover:before {
+  width: 100%;
+}

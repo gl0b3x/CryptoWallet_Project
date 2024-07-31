@@ -1,0 +1,158 @@
+.scrollTopButton {
+  position: fixed;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+  z-index: 999;
+  background-color: rgba(var(--purpleColor), 1);
+  box-shadow: 0 0 10px rgba(var(--purpleColor), 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 50px;
+  right: 50px;
+  width: 72px;
+  height: 72px;
+  opacity: 0.7;
+}
+
+.scrollTopButton svg {
+  font-size: 36px;
+  fill: white;
+}
+
+.scrollTopButton:hover {
+  box-shadow: 0 0 35px rgba(var(--purpleColor), 1);
+  opacity: 1;
+}
+
+.visible {
+  animation: slideFromRight 1s forwards;
+}
+
+.hidden {
+  animation: slideToRight 1s forwards;
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    visibility: visible;
+  }
+  100% {
+    transform: translateX(200%) rotate(360deg);
+    visibility: hidden;
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(200%) rotate(360deg);
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    visibility: visible;
+  }
+}
+
+.skeleton {
+  background: rgb(var(--background));
+  border-radius: 24px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accentColor), 0.1) 0%,
+    rgba(var(--accentColor), 0.05) 100%
+  );
+  animation: loading 2s infinite;
+  border-radius: 14px;
+}
+
+@keyframes loading {
+  0% {
+    left: -110%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  color: rgb(var(--accentColor));
+  position: relative;
+  background: radial-gradient(10px, currentColor 94%, #0000);
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(9px at bottom right, #0000 94%, currentColor) top left,
+    radial-gradient(9px at bottom left, #0000 94%, currentColor) top right,
+    radial-gradient(9px at top right, #0000 94%, currentColor) bottom left,
+    radial-gradient(9px at top left, #0000 94%, currentColor) bottom right;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  animation: l18 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+
+@keyframes l18 {
+  33% {
+    inset: -10px;
+    transform: rotate(0deg);
+  }
+  66% {
+    inset: -10px;
+    transform: rotate(90deg);
+  }
+  100% {
+    inset: 0;
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 479px) {
+  .scrollTopButton {
+    bottom: 25px;
+    right: 25px;
+    width: 64px;
+    height: 64px;
+  }
+  .scrollTopButton svg {
+    font-size: 24px;
+    fill: white;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .scrollTopButton {
+    bottom: 25px;
+    right: 25px;
+    width: 64px;
+    height: 64px;
+  }
+  .scrollTopButton svg {
+    font-size: 32px;
+    fill: white;
+  }
+}

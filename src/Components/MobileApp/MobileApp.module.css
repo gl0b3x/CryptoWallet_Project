@@ -1,0 +1,113 @@
+.mobileAppWrapper {
+  color: rgb(var(--textColor));
+  overflow: hidden;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--purpleColor), 1) 0%,
+    rgba(var(--accentColor), 1) 40%,
+    rgb(var(--background), 1) 100%
+  );
+}
+
+.mobileApp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10vh 0;
+  height: 100%;
+  background: rgba(var(--background), 0.8);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+.article {
+  color: rgb(var(--textColor));
+  font-size: clamp(
+    var(--min-article-size),
+    var(--preferred-article-size),
+    var(--max-article-size)
+  );
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.article span {
+  background: linear-gradient(
+    90deg,
+    rgba(var(--accentColor), 1) 0%,
+    rgba(var(--purpleColor), 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 3px;
+}
+
+.articleSecond {
+  color: rgb(var(--textColor));
+  font-size: calc(
+    clamp(
+        var(--min-article-size),
+        var(--preferred-article-size),
+        var(--max-article-size)
+      ) - 10px
+  );
+  text-transform: capitalize;
+}
+
+.download {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  margin-bottom: 10vh;
+  margin-top: 1vh;
+}
+
+.download img {
+  width: 180px;
+  opacity: 0.8;
+  border: 1px solid rgba(var(--accentColor), 0.3);
+  border-radius: 10px;
+}
+
+.download img:hover {
+  filter: drop-shadow(0px 0px 8px rgba(var(--accentColor), 0.8));
+  opacity: 1;
+}
+
+.phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone img {
+  width: 50%;
+  filter: drop-shadow(0px 0px 40px rgba(var(--accentColor), 0.8));
+}
+
+@media (max-width: 479px) {
+  .text {
+    padding: 0 10vw;
+  }
+  .download img {
+    width: 120px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .text {
+    padding: 0 10vw;
+  }
+  .download img {
+    width: 120px;
+  }
+}
