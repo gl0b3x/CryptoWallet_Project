@@ -142,7 +142,7 @@
       var(--max-header-size)
     )
   );
-  margin-bottom: 3%;
+  margin-bottom: 5%;
 }
 
 .groupTime span {
@@ -164,6 +164,12 @@
 
 .notActive {
   border: 1px solid rgba(var(--accentColor), 0.1);
+}
+
+.chart {
+  position: relative;
+  width: 100%;
+  height: 70vh;
 }
 
 .Article {
