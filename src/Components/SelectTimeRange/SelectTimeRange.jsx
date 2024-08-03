@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import styles from "./SelectTimeRange.module.css"; // Импортируйте CSS модуль
+import styles from "./SelectTimeRange.module.css";
 
 const optionsMap = {
   priceChange1h: "1h",

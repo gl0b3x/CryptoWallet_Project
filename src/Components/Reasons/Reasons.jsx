@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Reasons.module.css";
 import { motion } from "framer-motion";
 import { TfiBarChart, TfiBarChartAlt } from "react-icons/tfi";
