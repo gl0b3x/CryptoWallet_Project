@@ -98,6 +98,7 @@
   .statisticWrapper {
     padding: 0 5vw;
     flex-direction: column-reverse;
+    height: 70vh;
   }
   .leftBlock {
     height: 50%;
@@ -122,6 +123,7 @@
   .statisticWrapper {
     padding: 0 5vw;
     flex-direction: column-reverse;
+    height: 80vh;
   }
   .leftBlock {
     height: 50%;

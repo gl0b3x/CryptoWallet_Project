@@ -123,6 +123,7 @@
   }
   .mainWrapper {
     padding: 5vh 5vw;
+    height: 60vh;
   }
   .leftSection {
     width: 100%;
@@ -175,6 +176,7 @@
 @media (min-width: 480px) and (max-width: 767px) {
   .mainWrapper {
     padding: 5vh 5vw;
+    height: 75vh;
   }
   .leftSection {
     width: 100%;
