@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../Pages/HomePage.jsx";
 import PricesPage from "../Pages/PricesPage.jsx";
 import CryptoCurrencyPage from "../Pages/CryptoCurrencyPage.jsx";
+import WalletPage from "../Pages/WalletPage.jsx";
 
 const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ const AppRouter = () => {
           path="/cryptocurrency/:symbol"
           element={<CryptoCurrencyPage />}
         />
+        <Route path="/wallet" element={<WalletPage />} />
       </Routes>
     </BrowserRouter>
   );

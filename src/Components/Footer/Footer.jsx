@@ -21,7 +21,7 @@ const Footer = () => {
             <a href="/prices">Prices</a>
           </li>
           <li>
-            <a href="#">Wallet</a>
+            <a href="/wallet">Wallet</a>
           </li>
           <li>
             <a href="#">About</a>

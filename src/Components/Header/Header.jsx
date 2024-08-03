@@ -49,7 +49,7 @@ const Header = () => {
                   ? classes.active
                   : classes.notActive
               }
-              to=""
+              to="/wallet"
             >
               Wallet
             </Link>
@@ -142,7 +142,7 @@ const Header = () => {
                   ? classes.active
                   : classes.notActive
               }
-              to=""
+              to="/wallet"
             >
               Wallet
             </Link>

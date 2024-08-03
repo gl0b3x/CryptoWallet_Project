@@ -1,0 +1,139 @@
+.walletStartWrapper {
+  background-color: rgb(var(--background));
+  color: rgb(var(--textColor));
+  height: 70vh;
+  font-size: clamp(
+    var(--min-text-size),
+    var(--preferred-text-size),
+    var(--max-text-size)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftSection {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2%;
+}
+
+.Article {
+  font-size: clamp(
+    var(--min-article-size),
+    var(--preferred-article-size),
+    var(--max-article-size)
+  );
+  text-transform: capitalize;
+}
+
+.Article span {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--accentColor)) 0%,
+    rgb(var(--purpleColor)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.descriptionText {
+  font-size: clamp(
+    var(--min-text-size),
+    var(--preferred-text-size),
+    var(--max-text-size)
+  );
+}
+
+.descriptionText span {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--accentColor)) 0%,
+    rgb(var(--purpleColor)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.rightSection {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.walletPhoto {
+  width: 70%;
+}
+
+@media (max-width: 767px) {
+  .walletStartWrapper {
+    padding: 5vh 5vw;
+  }
+  .leftSection {
+    width: 100%;
+    gap: 5%;
+  }
+  .rightSection {
+    width: 100%;
+  }
+  .walletStartWrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .Article,
+  .descriptionText {
+    text-align: center;
+  }
+  .walletPhoto {
+    width: 60%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .walletStartWrapper {
+    padding: 15vh 10vw 5vh;
+  }
+  .leftSection {
+    width: 100%;
+    gap: 5%;
+  }
+  .rightSection {
+    width: 100%;
+  }
+  .walletStartWrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .Article,
+  .descriptionText {
+    text-align: center;
+  }
+  .walletPhoto {
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+  .walletStartWrapper {
+    padding: 0 10vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .walletStartWrapper {
+    padding: 0 15vw;
+  }
+}
