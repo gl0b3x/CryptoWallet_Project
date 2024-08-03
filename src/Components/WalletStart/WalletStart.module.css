@@ -79,18 +79,15 @@
 @media (max-width: 767px) {
   .walletStartWrapper {
     padding: 5vh 5vw;
-  }
-  .leftSection {
-    width: 100%;
-    gap: 5%;
-  }
-  .rightSection {
-    width: 100%;
-  }
-  .walletStartWrapper {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 50vh;
+  }
+  .leftSection,
+  .rightSection {
+    width: calc(100% - 5vw);
+    gap: 5%;
   }
   .Article,
   .descriptionText {
