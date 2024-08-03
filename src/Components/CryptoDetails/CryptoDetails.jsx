@@ -102,7 +102,10 @@ const CryptoDetails = () => {
       },
       crosshair: {
         horzLine: {
-          visible: false,
+          visible: true,
+          style: 0,
+          width: 2,
+          color: "rgba(32, 38, 46, 1)",
           labelVisible: false,
         },
         vertLine: {
@@ -264,7 +267,7 @@ const CryptoDetails = () => {
           <div
             style={{
               width: "100%",
-              height: "65vh",
+              height: "70vh",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
