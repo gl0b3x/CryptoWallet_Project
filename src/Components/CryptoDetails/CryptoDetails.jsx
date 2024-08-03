@@ -205,7 +205,7 @@ const CryptoDetails = () => {
     <main className={classes.detailsWrapper}>
       {loading ? (
         <div className={classes.generalInfo}>
-          <SkeletonLoading style={{ width: "30%", height: "125px" }} />
+          <SkeletonLoading style={{ width: "100%", height: "125px" }} />
         </div>
       ) : (
         <div className={classes.generalInfo}>
