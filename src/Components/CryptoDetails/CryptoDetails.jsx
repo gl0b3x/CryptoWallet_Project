@@ -102,17 +102,15 @@ const CryptoDetails = () => {
       },
       crosshair: {
         horzLine: {
-          visible: true,
+          visible: false,
           style: 0,
-          width: 2,
-          color: "rgba(32, 38, 46, 1)",
           labelVisible: false,
         },
         vertLine: {
           visible: true,
           style: 0,
           width: 2,
-          color: "rgba(32, 38, 46, 1)",
+          color: "rgba(32, 38, 46, 0.7)",
           labelVisible: false,
         },
       },
